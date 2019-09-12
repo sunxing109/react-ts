@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link,NavLink, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import FirstQuarter from "./firstQuarter";
 import SecondQuarter from "./secondQuarter";
@@ -24,7 +24,7 @@ const history = ({ location }) => {
           style={{ height: "100%" }}
         >
           <Menu.Item key="1">
-            <NavLink to="/history" activeName="">第一季度</NavLink>
+            <Link to="/history">第一季度</Link>
           </Menu.Item>
           <Menu.Item key="2">
             <Link to="/history/second">第二季度</Link>
@@ -34,7 +34,7 @@ const history = ({ location }) => {
       <Content style={{ padding: "0 24px", minHeight: 280 }}>
         <Switch>
           <Route path="/history" exact component={FirstQuarter} />
-          <Route path="second" exact component={SecondQuarter} />
+          <Route path="/history/second" exact component={SecondQuarter} />
         </Switch>
       </Content>
     </Layout>

@@ -4,8 +4,9 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
 import promiseMiddleware from 'redux-promise-middleware';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AppComponent from "./component";
+import SecondQuarter from "./component/history/secondQuarter";
 import HistoryReducer, {
   HistoryState
 } from "./component/history/historyReducers";
@@ -28,7 +29,10 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Route path="/" component={AppComponent} />
+        <Switch>
+          <Route path="/" component={AppComponent} />
+          <Route path="/history/second" exact component={SecondQuarter} />
+        </Switch>
       </Router>
     </Provider>
   );
