@@ -1,0 +1,11 @@
+.logo {
+  width: 120px;
+  height: 40px;
+  background-image: url("https://picsum.photos/id/0/120/40");
+  margin: 16px 28px 16px 0;
+  float: left;
+}
+
+.activeLink {
+  background-color: rebeccapurple;
+}
