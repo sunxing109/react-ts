@@ -1,10 +1,11 @@
 import * as React from "react";
-import { List, Avatar, Icon } from "antd";
+import { List, Avatar, Icon ,Button} from "antd";
 import { connect } from "react-redux";
+import { RouteComponentProps } from "react-router-dom";
 import { fetchSecondQuarter } from "./historyReducers";
 import { rootState } from "../../index";
 
-interface IProps extends StateProps{
+interface IProps extends StateProps,RouteComponentProps{
   fetchSecondQuarter():void;
 }
 interface Istate {}
@@ -20,10 +21,18 @@ class secondQuarter extends React.PureComponent<IProps, Istate> {
   componentDidMount() {
     this.props.fetchSecondQuarter();
   }
+  
+  handleClick = () => {
+    console.log("点击");
+    
+    this.props.history.push("/");
+  }
 
   render() {
+    
     return (
       <div>
+        <Button onClick={this.handleClick}>按钮</Button>
         <List
           itemLayout="vertical"
           size="large"
@@ -47,6 +56,7 @@ class secondQuarter extends React.PureComponent<IProps, Istate> {
                   type="star-o"
                   text="156"
                   key="list-vertical-star-o"
+                  
                 />,
                 <IconText
                   type="like-o"
@@ -67,6 +77,7 @@ class secondQuarter extends React.PureComponent<IProps, Istate> {
                 // avatar={<Avatar src={item.avatar} />}
                 title={<a href={item.href}>{item.title}</a>}
                 description={item.description}
+               
               />
               {item.content}
             </List.Item>

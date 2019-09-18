@@ -24,10 +24,10 @@ const history = ({ location }) => {
           style={{ height: "100%" }}
         >
           <Menu.Item key="1">
-            <Link to="/history">第一季度</Link>
+            <Link to={{ pathname: "/history"}}>第一季度</Link>
           </Menu.Item>
           <Menu.Item key="2">
-            <Link to="/history/second">第二季度</Link>
+            <Link to={{ pathname: "/history/second"}}>第二季度</Link>
           </Menu.Item>
         </Menu>
       </Sider>

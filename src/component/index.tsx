@@ -14,7 +14,7 @@ const AppComponent = ({ match }) => {
       <HeaderDiv />
       <Content style={{ padding: "0 50px" }}>
         <Switch>
-          <Route path="/" component={HomePage} />
+          <Route path="/" exact component={HomePage} />
           <Route path="/history" component={History} />
         </Switch>
       </Content>
