@@ -2,7 +2,8 @@ import * as React from "react";
 import { List, Avatar, Icon ,Button} from "antd";
 import { connect } from "react-redux";
 import { RouteComponentProps } from "react-router-dom";
-import { fetchSecondQuarter } from "./historyReducers";
+// import { fetchSecondQuarter } from "./historyReducers";
+import {  FETCH_SECOND_HISTORTY } from "./constant";
 import { rootState } from "../../index";
 
 interface IProps extends StateProps,RouteComponentProps{
@@ -92,8 +93,10 @@ const mapstateToprops = (state: rootState) => ({
   data: state.HistoryReducer.secondQuarter
 });
 
-const mapDispatchToProps = {
-    fetchSecondQuarter
+const mapDispatchToProps = (dispatch:any)=>{
+   return{
+    fetchSecondQuarter:()=>{dispatch({type:"FETCH_SECOND_HISTORTY1"})}
+   } 
   }
     
 type StateProps = ReturnType<typeof mapstateToprops>;

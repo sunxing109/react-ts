@@ -2,7 +2,8 @@ import * as React from "react";
 import { List, Card } from "antd";
 import { connect } from "react-redux";
 import { RouteComponentProps } from "react-router-dom";
-import { fetchFirstQuarter, HistoryState } from "./historyReducers";
+// import { fetchFirstQuarter, HistoryState } from "./historyReducers";
+import { FETCH_FIRST_HISTORTY } from "./constant";
 import { rootState } from "../../index";
 // import { IfirstQuarter } from "../share/model/history";
 
@@ -97,7 +98,7 @@ const mapstateToprops = (state: rootState) => {
 //  // mapDispatchToProps为函数类型
 const mapDispatchToProps = (dispatch:any)=>{
   return ({
-     fetchFirstQuarter:()=>{dispatch(fetchFirstQuarter());}
+     fetchFirstQuarter:()=>{dispatch({type:"FETCH_FIRST_HISTORTY1"});}
      })
 }
 // 解析后为 函数

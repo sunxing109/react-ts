@@ -27,40 +27,40 @@ export default (state: HistoryState = initState, action): HistoryState => {
   }
 };
 
-export const fetchFirstQuarter = () => {
-  console.log("====================fetchFirstQuarter action");
+// export const fetchFirstQuarter = () => {
+//   console.log("====================fetchFirstQuarter action");
   
-  return dispatch => {
-    fetch("/IfirstQuarter.json")
-      .then(res => res.json())
-      .then(data => {
-        console.log("====================11");
-        
-        dispatch({
-          type: FETCH_FIRST_HISTORTY,
-          payload: data
-        });
-      });
-  };
-};
-
-// export const fetchSecondQuarter = () => {
 //   return dispatch => {
-//     fetch("/IsecondQuarter.json")
+//     fetch("/IfirstQuarter.json")
 //       .then(res => res.json())
 //       .then(data => {
+//         console.log("====================11");
+        
 //         dispatch({
-//           type: FETCH_SECOND_HISTORTY,
+//           type: FETCH_FIRST_HISTORTY,
 //           payload: data
 //         });
 //       });
 //   };
 // };
 
-export const fetchSecondQuarter = () => async dispatch => {
-    await axios.get("/IsecondQuarter.json").then(data => dispatch({
-      type: FETCH_SECOND_HISTORTY,
-        payload: data.data
-    }) );
-}
+// // export const fetchSecondQuarter = () => {
+// //   return dispatch => {
+// //     fetch("/IsecondQuarter.json")
+// //       .then(res => res.json())
+// //       .then(data => {
+// //         dispatch({
+// //           type: FETCH_SECOND_HISTORTY,
+// //           payload: data
+// //         });
+// //       });
+// //   };
+// // };
+
+// export const fetchSecondQuarter = () => async dispatch => {
+//     await axios.get("/IsecondQuarter.json").then(data => dispatch({
+//       type: FETCH_SECOND_HISTORTY,
+//         payload: data.data
+//     }) );
+// }
 
