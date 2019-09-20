@@ -5,6 +5,8 @@ import { RouteComponentProps } from "react-router-dom";
 // import { fetchFirstQuarter, HistoryState } from "./historyReducers";
 import { FETCH_FIRST_HISTORTY } from "./constant";
 import { rootState } from "../../index";
+import { HistoryState } from "./historyReducers";
+import { IfirstQuarter } from "../share/model/history";
 // import { IfirstQuarter } from "../share/model/history";
 
 
@@ -77,10 +79,10 @@ export class FirstQuarter extends React.Component<IProps, Istate>{
 
 }
 const mapstateToprops = (state: rootState) => {
-  console.log("====================mapstateToprops");
-
+  console.log("====================mapstateToprops："+state.HistoryReducer.firstQuarter);
+  let firstQuarter:IfirstQuarter[] = JSON.parse(JSON.stringify(state.HistoryReducer.firstQuarter));
   return ({
-    data: state.HistoryReducer.firstQuarter
+    data: firstQuarter
   })
 };
 
@@ -93,12 +95,14 @@ const mapstateToprops = (state: rootState) => {
 // const mapDispatchToProps: {
 //   fetchFirstQuarter: () => (dispatch: any) => void;
 // }
-
+const action_fetch = ()=>{
+	return{type:"FETCH_FIRST_HISTORTY1"}
+}
 
 //  // mapDispatchToProps为函数类型
 const mapDispatchToProps = (dispatch:any)=>{
   return ({
-     fetchFirstQuarter:()=>{dispatch({type:"FETCH_FIRST_HISTORTY1"});}
+     fetchFirstQuarter:()=>{dispatch(action_fetch());}
      })
 }
 // 解析后为 函数

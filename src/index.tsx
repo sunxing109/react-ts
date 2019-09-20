@@ -7,7 +7,7 @@ import createSagaMiddleware from "redux-saga";
 // import promiseMiddleware from 'redux-promise-middleware';
 import { BrowserRouter as Router, Route, Switch,withRouter } from "react-router-dom";
 import AppComponent from "./component";
-import SecondQuarter from "./component/history/secondQuarter";
+// import SecondQuarter from "./component/history/secondQuarter";
 import HistoryReducer, {
   HistoryState
 } from "./component/history/historyReducers";
@@ -17,7 +17,7 @@ import rootsaga from "./component/saga";
 export interface rootState {
   readonly HistoryReducer: HistoryState;
 }
-const rootReducer = combineReducers<rootState>({ HistoryReducer });
+export const rootReducer = combineReducers<rootState>({ HistoryReducer });
 
 
 
@@ -58,22 +58,17 @@ function isAbsolute(pathname) {
   return pathname.charAt(0) === '/';
 }
 export function App() {
-  let str1 = "/second/";
-  console.log("++++++++="+str1.split("/").length);
-  
-  console.log("++++++++="+location.pathname);
-  console.log("++++++++="+ isAbsolute(location.pathname));
-  
+    
   return (
     <Provider store={store}>
       <Router>
-        {/* <Switch> */}
-          {/* <Route path="/" component={AppComponent} /> */}
+        <Switch>
+          <Route path="/" component={AppComponent} />
           {/* <Route path="/(second2|second3)" exact component={SecondQuarter} /> */}
-          <Route path="/second"  component={test} />
-          <Route path="/second2/" strict component={test2} />
+          {/* <Route path="/second"  component={test} />
+          <Route path="/second2/" strict component={test2} /> */}
           {/* <Route component={test3} /> */}
-        {/* </Switch> */}
+        </Switch>
       </Router>
     </Provider>
   );

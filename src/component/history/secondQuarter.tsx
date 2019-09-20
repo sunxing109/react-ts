@@ -1,15 +1,16 @@
 import * as React from "react";
-import { List, Avatar, Icon ,Button} from "antd";
+import { List, Avatar, Icon, Button } from "antd";
 import { connect } from "react-redux";
 import { RouteComponentProps } from "react-router-dom";
 // import { fetchSecondQuarter } from "./historyReducers";
-import {  FETCH_SECOND_HISTORTY } from "./constant";
+import { FETCH_SECOND_HISTORTY } from "./constant";
 import { rootState } from "../../index";
+import { IsecondQuarter } from "../share/model/history";
 
-interface IProps extends StateProps,RouteComponentProps{
-  fetchSecondQuarter():void;
+interface IProps extends StateProps, RouteComponentProps {
+  fetchSecondQuarter(): void;
 }
-interface Istate {}
+interface Istate { }
 
 const IconText = ({ type, text }) => (
   <span>
@@ -22,15 +23,15 @@ class secondQuarter extends React.PureComponent<IProps, Istate> {
   componentDidMount() {
     this.props.fetchSecondQuarter();
   }
-  
+
   handleClick = () => {
     console.log("点击");
-    
+
     this.props.history.push("/");
   }
 
   render() {
-    
+
     return (
       <div>
         <Button onClick={this.handleClick}>按钮</Button>
@@ -57,7 +58,7 @@ class secondQuarter extends React.PureComponent<IProps, Istate> {
                   type="star-o"
                   text="156"
                   key="list-vertical-star-o"
-                  
+
                 />,
                 <IconText
                   type="like-o"
@@ -78,7 +79,7 @@ class secondQuarter extends React.PureComponent<IProps, Istate> {
                 // avatar={<Avatar src={item.avatar} />}
                 title={<a href={item.href}>{item.title}</a>}
                 description={item.description}
-               
+
               />
               {item.content}
             </List.Item>
@@ -89,16 +90,19 @@ class secondQuarter extends React.PureComponent<IProps, Istate> {
   }
 }
 
-const mapstateToprops = (state: rootState) => ({
-  data: state.HistoryReducer.secondQuarter
-});
+const mapstateToprops = (state: rootState) => {
+  let secondQuarter: IsecondQuarter[] = JSON.parse(JSON.stringify(state.HistoryReducer.secondQuarter));
+  return ({
+    data: secondQuarter
+  });
+}
 
-const mapDispatchToProps = (dispatch:any)=>{
-   return{
-    fetchSecondQuarter:()=>{dispatch({type:"FETCH_SECOND_HISTORTY1"})}
-   } 
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    fetchSecondQuarter: () => { dispatch({ type: "FETCH_SECOND_HISTORTY1" }) }
   }
-    
+}
+
 type StateProps = ReturnType<typeof mapstateToprops>;
 type DispatchProps = typeof mapDispatchToProps;
 export default connect(

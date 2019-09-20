@@ -3,8 +3,8 @@ import { FETCH_FIRST_HISTORTY, FETCH_SECOND_HISTORTY } from "./constant";
 import axios from "axios";
 
 const initState = {
-  firstQuarter: [] as Array<IfirstQuarter>,
-  secondQuarter: [] as Array<IsecondQuarter>
+  firstQuarter: [] as ReadonlyArray<IfirstQuarter>,
+  secondQuarter: [] as ReadonlyArray<IsecondQuarter>
 };
 
 export type HistoryState = Readonly<typeof initState>;
@@ -12,7 +12,7 @@ export type HistoryState = Readonly<typeof initState>;
 export default (state: HistoryState = initState, action): HistoryState => {
   switch (action.type) {
     case FETCH_FIRST_HISTORTY:
-      console.log("====================FETCH_FIRST_HISTORTY");
+      console.log("====================FETCH_FIRST_HISTORTY。。。。。");
       
       return { ...state, firstQuarter: action.payload };
 
